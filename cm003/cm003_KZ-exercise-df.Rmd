@@ -1,0 +1,51 @@
+---
+title: "Data Frame Exploration"
+output: 
+  html_document:
+        theme: cerulean
+        
+##title: "Data Frame Exploration"
+##output: 
+  ##html_document:
+        ##theme: cerulean
+        ##toc: true
+        
+---
+#lots of these details are found in the resources tab
+#YAML header
+#can change to pdf_document, or use KNIT header. Change to a github document github_document
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+$$\alpha = 5 + 2$$
+Inline equation $\alpha = 5 + 2$
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+#converts R markdown to HTML
+#integreation between r code and a document, you can write an analysis and demonstrate it as you analyze it
+
+```{r cars}
+summary(cars)
+```
+```{r}
+```
+
+#Insert R is a co-chunk
+#use a comma to bring up chunk options 
+#```{rcars, }
+## Including Plots
+
+#R notebook vs markdown: only difference is that the execution of commands... r code is ran within notebook and renders html. Markdown knits and clears the directory then executes everything from top to bottom
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE, fig.width=3, fig/.height=3}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
