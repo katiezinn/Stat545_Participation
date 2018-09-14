@@ -16,7 +16,11 @@ Syntax highlighted code block
 ### Header 3
 
 
-```what do these things do "`" This is my testing out my readme page 
+**what do these things do** _This is my testing out my readme page_ 
+
+`code text`
+
+www.google.ca(url)
 
 
 
