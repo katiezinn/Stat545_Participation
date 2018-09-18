@@ -305,6 +305,11 @@ Note: think of `%>%` as the word "then"!
 ## `filter()`
 
 
+
+
+1. Only take data with population greater than 100 million.
+
+
 ```r
 gapminder %>% 
   filter(pop > 100000000)
@@ -327,10 +332,30 @@ gapminder %>%
 ## # ... with 67 more rows
 ```
 
-
-1. Only take data with population greater than 100 million.
-
 2. Of those, only take data from Asia.
+
+```r
+gapminder %>% 
+  filter(pop > 100000000) %>% 
+    filter(continent == "Asia")
+```
+
+```
+## # A tibble: 52 x 6
+##    country    continent  year lifeExp       pop gdpPercap
+##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Bangladesh Asia       1987    52.8 103764241      752.
+##  2 Bangladesh Asia       1992    56.0 113704579      838.
+##  3 Bangladesh Asia       1997    59.4 123315288      973.
+##  4 Bangladesh Asia       2002    62.0 135656790     1136.
+##  5 Bangladesh Asia       2007    64.1 150448339     1391.
+##  6 China      Asia       1952    44   556263527      400.
+##  7 China      Asia       1957    50.5 637408000      576.
+##  8 China      Asia       1962    44.5 665770000      488.
+##  9 China      Asia       1967    58.4 754550000      613.
+## 10 China      Asia       1972    63.1 862030000      677.
+## # ... with 42 more rows
+```
 
 ## git stuff (Optional)
 
@@ -357,12 +382,73 @@ Your task is to use metaprogramming to check whether a response (like the one ab
 2. Use the `eval()` function to execute the code, to see if the code runs.
 3. Use the `as.character()` function to check whether this response contains an `if` statement.
 
+# <- means "gets" = also does the same thing 
+# %>% = then
 # Relational/Comparison and Logical Operators in R
+# x | y	= x OR y
+# x & y	= x AND y
+# isTRUE(x)	= test if X is TRUE
 
 1. Find all entries of Canada and Algeria occuring in the '60s. 
 
+
+```r
+gapminder %>% 
+  filter((country == "Canada" | country == "Algeria") & year >= 1960 & year < 1970)
+```
+
+```
+## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   <fct>   <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.
+```
+
+#easier way:
+
+```r
+gapminder %>% 
+  filter(country %in% c("Canada", "Algeria"),
+    year >= 1960, year < 1970)
+```
+
+```
+## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   <fct>   <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.
+```
+
 2. Find all entries of Canada, and entries of Algeria occuring in the '60s. 
 3. Find all entries _not_ including Canada and Algeria.
+
+```r
+gapminder %>% 
+  filter(!(country == "Canada" | country == "Algeria") & year >= 1960 & year < 1970)
+```
+
+```
+## # A tibble: 280 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Afghanistan Asia       1962    32.0 10267083      853.
+##  2 Afghanistan Asia       1967    34.0 11537966      836.
+##  3 Albania     Europe     1962    64.8  1728137     2313.
+##  4 Albania     Europe     1967    66.2  1984060     2760.
+##  5 Angola      Africa     1962    34    4826015     4269.
+##  6 Angola      Africa     1967    36.0  5247469     5523.
+##  7 Argentina   Americas   1962    65.1 21283783     7133.
+##  8 Argentina   Americas   1967    65.6 22934225     8053.
+##  9 Australia   Oceania    1962    70.9 10794968    12217.
+## 10 Australia   Oceania    1967    71.1 11872264    14526.
+## # ... with 270 more rows
+```
 
 # Bonus Exercises
 
