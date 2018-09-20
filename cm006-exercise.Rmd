@@ -39,11 +39,6 @@ ggplot(gapminder, aes(x=lifeExp, y=gdpPercap)) +
 
 3. Add the missing component as a _layer_.
 
-```{r}
-+ 
-  geom_point()
-```
-
 
 Notice the "metaprogramming" again!
 
@@ -51,10 +46,7 @@ Notice the "metaprogramming" again!
 
 If you put AES in ggplot it will apply globally rather than in one area of the function
 
-```{r}
-ggplot(gapminder) +
-  geom_point(#AES)x=lifeExp, y=gdpPercap)
-```
+
 
 
 5. Put the y-axis on a log scale, first by transforming the y variable. 
@@ -71,7 +63,7 @@ ggplot(gapminder, aes(x=lifeExp, y=log(gdpPercap))) +
 ```{r}
 ggplot(gapminder, aes(lifeExp, gdpPercap)) +
   geom_point() +
-  scale_y_log
+  scale_y_log()
 ```
 
 
