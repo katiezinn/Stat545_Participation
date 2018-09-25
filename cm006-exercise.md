@@ -9,14 +9,14 @@ In this worksheet, we'll be exploring various plot types (i.e., geometric object
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
     ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
     ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
     ## ✔ readr   1.1.1     ✔ forcats 0.3.0
 
-    ## ── Conflicts ───────────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -71,9 +71,11 @@ ggplot(gapminder, aes(x=lifeExp, y=log(gdpPercap))) +
 
 1.  Try again, this time by changing the *scale* (this way is better).
 
-2.  The aesthetic mappings can be specified on the geom layer if you want, instead of the main `ggplot` call. Give it a try:
+ggplot(gapminder, aes(lifeExp, gdpPercap)) + geom\_point() + scale\_y\_log()
 
-3.  Optional: git stage and commit
+1.  The aesthetic mappings can be specified on the geom layer if you want, instead of the main `ggplot` call. Give it a try:
+
+2.  Optional: git stage and commit
 
 **Uses of a scatterplot**:
 
