@@ -132,6 +132,7 @@ Note: think of `%>%` as the word "then"!
 ```{r}
 gapminder %>% 
   filter(pop > 100000000)
+??piping
 ```
 
 2. Of those, only take data from Asia.
