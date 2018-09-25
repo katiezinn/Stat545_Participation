@@ -60,11 +60,11 @@ ggplot(gapminder, aes(x=lifeExp, y=log(gdpPercap))) +
 
 6. Try again, this time by changing the _scale_ (this way is better).
 
-```{r}
+
 ggplot(gapminder, aes(lifeExp, gdpPercap)) +
   geom_point() +
   scale_y_log()
-```
+
 
 
 7. The aesthetic mappings can be specified on the geom layer if you want, instead of the main `ggplot` call. Give it a try:
