@@ -124,6 +124,14 @@ gapminder %>%
   arrange(md)
 ```
 
+```{r}
+gapminder %>%
+  mutate(age= if_else(lifeExp > 60, "high", "low")) %>%
+  group_by(continent,age) %>%
+  summarize(md = median(gdpPercap)) %>%
+  arrange(md)
+```
+
 There are special functions to summarize by. Let's see some of them:
 
 - `n()`: Number of rows in the group.
@@ -137,7 +145,13 @@ Convenience functions:
 n_distinct: How many years of record does each country have?
 
 ```{r}
-
+gapminder %>%
+  group_by(continent) %>%
+  #summarize(num = n())
+  tally()
+  
+gapminder %>%
+  count(continent)
 ```
 
 count
@@ -152,14 +166,28 @@ Let's stop to identify some theory of function types, and the `dplyr` approach t
 | Aggregate functions | These take a vector, and return a vector of length 1 | `mean`, `sd`, `length`, `typeof` | `summarize`, esp with `group_by`. |
 | Window Functions | these take a vector, and return a vector of the same length that depends on the vector as a whole. | `lag`, `rank`, `cumsum` | `mutate`, esp with `group_by` |
 
+```{r}
+rank(c(4.5, 2.3, 5))
+#these can't be calculated independently
+
+```
+
 For any generic output, we can use dplyr's `do()` function -- but that's a topic for STAT 547. 
 
 ## Grouped `mutate()`
 
-Calculate the growth in population since the first year on record _for each country_. `first()` is useful.
+Calculate the growth in population since the first year on record _for each country_. `first()` is useful. 
+#1952 is 0 the first year
 
 ```{r}
+gapminder %>%
+  group_by(country) %>%
+  mutate(growth = pop - first(pop))
 
+gapminder %>%
+  group_by(country) %>%
+  mutate(change = pop - lag(pop))
+#lag takes a vector and shifts it back by 1.. creates first value NA, if you wanna use today's river flow to predict tomorrow's you would lag the data
 ```
 
 Notice that `dplyr` has retained the original grouping.
@@ -167,7 +195,9 @@ Notice that `dplyr` has retained the original grouping.
 How about growth compared to `1972`?
 
 ```{r}
-
+gapminder %>%
+  group_by(country) %>%
+  mutate(growth = pop - pop[year == 1972]) #brackets subset
 ```
 
 Make a new variable `pop_last_time`, as the "lag-1" population -- that is, the population from the previous entry of that country. Use the `lag` function.
@@ -187,13 +217,31 @@ Your turn: Use what we learned to answer the following questions.
 1. Determine the country that experienced the sharpest 5-year drop in life expectancy, in each continent.
 
 ```{r}
-
+gapminder %>%
+  group_by(continent, country) %>%
+  mutate(gain = lifeExp - lag(lifeExp)) %>%
+  filter(!is.na(gain)) %>%
+  summarize(min = min(gain)) %>%
+  summarize(min = min(min)) %>%
+  arrange(min)
 ```
 
 2. Compute the relative gdp (NOT per capita!) of each country compared to Canada (= GDP of a country / GDP of Canada).
 
 ```{r}
-
+cda <- gapminder %>%
+  mutate(gdp = gdpPercap * pop) %>%
+  filter(country == "Canada") %>%
+  `[[`("gdp")
+  
+  my_df <- gapminder %>%
+    mutate(cda_gdp = rep(cda, nlevels(country)), 
+           gdp = gdpPercap * pop, 
+           rel_gdp = gdp/cda_gdp)
+  
+  my_df %>% filter(country =="Canada") #sanity check?
+  summary(my_df$rel_gdp) #values typically lower than 1
+  
 ```
 
 Sanity check: are Canada's numbers = 1? What is the spread of numbers like (should be small)?
