@@ -1,6 +1,6 @@
 ---
 title: "cm011 Exercises: R as a programming language"
-output: html_notebook
+output: github_document
 ---
 
 # Part I
@@ -243,6 +243,7 @@ Subsetting a list works similarly to vectors. Try subsetting the first element o
 ```{r}
 my_list[1] #car of the 1st train
 my_list[[1]] #contents of the car of the first train
+my_list[[2]][1]
 ```
 
 Try also subsetting by name:
@@ -360,9 +361,7 @@ Special scoping rule for functions! R knows whether or not to look for a functio
 
 8. Look at the source code of the `pryr:where()` function. It contains a line that creates a binding for "env". Why, then, is `env` nowhere to be found? Answer: execution environments. 
 
-```{r}
-pryr::where
-```
+
 
 
 
