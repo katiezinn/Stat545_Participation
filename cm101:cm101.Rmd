@@ -18,7 +18,7 @@ This worksheet is a condensed version of Jenny's stat545.com functions [part1](h
 Let's demo the syntax of function-making.
 
 ```{r}
-
+square <- function()
 ```
 
 ## Motivating example: max minus min.
