@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537894204276.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2402642943",
+    "id" : "8A158867",
+    "lastKnownWriteTime" : 1537897604,
+    "last_content_update" : 1537897604123,
+    "path" : "~/KatieZinn_Particiation/cm007-exercise.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "140,3",
+        "scrollLine" : "130"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,3 @@
+"0","gvsl <- ggplot(gapminder, aes(gdpPercap, lifeExp)) +"
+"0","    scale_x_log10()"
+"0","gvsl + geom_point(aes(shape=continent), alpha=0.2)"
