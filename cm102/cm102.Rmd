@@ -40,7 +40,7 @@ fox
 Not quite the sentence I was thinking of. How many words does it contain? Use `str_split(string, pattern)`, noting its output (list).
 
 ```{r}
-str_split(fox, pattern=" ")
+str_split(fox, pattern=" ")[[1]] %>% length()
 str_split(sentences, pattern=" ") %>% head()
 ```
 
