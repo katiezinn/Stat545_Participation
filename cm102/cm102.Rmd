@@ -40,7 +40,7 @@ fox
 Not quite the sentence I was thinking of. How many words does it contain? Use `str_split(string, pattern)`, noting its output (list).
 
 ```{r}
-str_split(fox, pattern=" ")[[1]] %>% length()
+str_split(fox, pattern=" ")[[1]] %>%
 str_split(sentences, pattern=" ") %>% head()
 ```
 
@@ -52,8 +52,10 @@ Exercise: does this sentence contain all letters of the alphabet? Hints:
 
 ```{r}
 fox %>% 
-  str_split(FILL_THIS_IN) %>% 
-  FILL_THIS_IN
+  str_split("") %>% 
+  `[[`(1) %>%
+  str_to_lower() %>%
+  table()
 ```
 
 

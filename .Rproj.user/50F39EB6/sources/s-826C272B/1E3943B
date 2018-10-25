@@ -7,14 +7,14 @@
     "folds" : "",
     "hash" : "0",
     "id" : "1E3943B",
-    "lastKnownWriteTime" : 1540485888,
-    "last_content_update" : 1540485888843,
+    "lastKnownWriteTime" : 1540486348,
+    "last_content_update" : 1540486431154,
     "path" : "~/KatieZinn_Particiation/cm102/cm102.Rmd",
     "project_path" : "cm102/cm102.Rmd",
     "properties" : {
         "chunk_output_type" : "inline",
-        "cursorPosition" : "56,3",
-        "scrollLine" : "33"
+        "cursorPosition" : "74,0",
+        "scrollLine" : "63"
     },
     "relative_order" : 1,
     "source_on_save" : false,
