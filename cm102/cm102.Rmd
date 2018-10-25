@@ -9,6 +9,7 @@ editor_options:
 suppressPackageStartupMessages(library(tidyverse))
 library(gapminder)
 library(testthat)
+
 ```
 
 ## Resources
@@ -31,13 +32,16 @@ There's that famous sentence about the quick brown fox that contains all letters
 `str_subset(string, pattern)`
 
 ```{r}
-fox <- str_subset(FILL_THIS_IN, FILL_THIS_IN)
+fox <- str_subset(sentences, pattern="fox")
+
+fox
 ```
 
 Not quite the sentence I was thinking of. How many words does it contain? Use `str_split(string, pattern)`, noting its output (list).
 
 ```{r}
-str_split(FILL_THIS_IN, FILL_THIS_IN)
+str_split(fox, pattern=" ")
+str_split(sentences, pattern=" ") %>% head()
 ```
 
 Exercise: does this sentence contain all letters of the alphabet? Hints: 
