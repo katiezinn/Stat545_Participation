@@ -1,0 +1,2 @@
+"0","c(""bear"", ""beer"", ""bar"") %>% "
+"0","    str_view_all_match(pattern = ""be(e|a)r"")"
