@@ -92,6 +92,7 @@ use `map2_chr()` to come up with the following output in three ways:
 
 ```{r}
 str_c(name, " takes ", commute, " minutes to get to work.")
+?str_c
 ```
 
 1. By defining a function before feeding it into `map2()` -- call it `comm_fun`.
