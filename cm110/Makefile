@@ -19,6 +19,8 @@ plot: histogram.png hist2.png
 #benefit of make, if you specify inputs and outputs we can decide what to run
 # $< refer to the first dependency
 
+#making an edit to so I can push and see changes
+
 #type "make histogram.tsv"" in the terminal
 # $@ is a shortcut for the target 
 
