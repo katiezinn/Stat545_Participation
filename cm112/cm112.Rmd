@@ -230,7 +230,7 @@ __Together__:
 2. Inspect its `str()`ucture, `class()`, and `names()`.
 
 ```{r}
-site <- GET("www.google.ca")
+site <- GET("https://api.github.com/users/hadley/orgs")
 
 str(site)
 
@@ -243,8 +243,11 @@ names(site)
 
 ```{r}
 site$status_code
+# no error = good
 
-site$content
+
+#site$content
+# this is how the content is stored
 ```
 
 4. Try the function versions: `status_code()` and `content()`. 
