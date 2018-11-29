@@ -215,6 +215,15 @@ Suggested resources (which also briefly explain what API's are):
 
 Those same HTTP verbs are `httr` functions. We'll be focussing on `GET()`!
 
+
+******************
+
+> request
+
+< response
+
+******************
+
 __Together__:
 
 1. `GET()` a website, any website.
